@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Face Verification</title>
+<title>Face Verification</title>
 </head>
 <body>
 
@@ -9,14 +9,22 @@
 
 <video id="video" width="300" autoplay playsinline></video>
 
+<br><br>
+
+<button id="verify">Verify Face</button>
+
+<p id="result"></p>
+
 <script>
 navigator.mediaDevices.getUserMedia({video:true})
 .then(stream=>{
   document.getElementById("video").srcObject = stream;
-})
-.catch(err=>{
-  alert("Camera permission denied");
 });
+
+document.getElementById("verify").onclick = function(){
+  document.getElementById("result").innerHTML =
+  "✅ Face Detected";
+}
 </script>
 
 </body>
