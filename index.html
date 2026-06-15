@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Verification</title>
+</head>
+<body>
 
+<h1>Face Verification Project</h1>
+
+<video id="video" width="300" autoplay playsinline></video>
+
+<script>
+navigator.mediaDevices.getUserMedia({video:true})
+.then(stream=>{
+  document.getElementById("video").srcObject = stream;
+})
+.catch(err=>{
+  alert("Camera permission denied");
+});
+</script>
+
+</body>
+</html>
