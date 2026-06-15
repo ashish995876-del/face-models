@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Face Verification</title>
-</head>
 <body>
 
 <h1>Face Verification Project</h1>
 
-<video id="video" width="300" autoplay playsinline></video>
+<p id="result">Loading...</p>
 
-<br><br>
-
-<button id="verify">Verify Face</button>
-
-<p id="result"></p>
+<script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
 
 <script>
-navigator.mediaDevices.getUserMedia({video:true})
-.then(stream=>{
-  document.getElementById("video").srcObject = stream;
-});
-
-document.getElementById("verify").onclick = function(){
-  document.getElementById("result").innerHTML =
-  "✅ Face Detected";
+if(typeof faceapi !== "undefined"){
+    document.getElementById("result").innerHTML =
+    "✅ face-api.js loaded";
+}else{
+    document.getElementById("result").innerHTML =
+    "❌ face-api.js not loaded";
 }
 </script>
 
